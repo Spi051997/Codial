@@ -7,6 +7,9 @@ const app=express();
 
 const expresslayouts=require('express-ejs-layouts');
 
+// import assets folder using below 👇
+app.use(express.static('./assets'))
+//  use express layouts
 app.use(expresslayouts);
 
 // use express
