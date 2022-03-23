@@ -3,11 +3,9 @@ const port=8000;
 
 const app=express();
 
+// use express
 
-app.get('/',(req,res)=>
-{
-   return res.send("Hello")
-})
+app.use('/',require('./routes'));
 
 
 app.listen(port,()=>console.log(`Server is up :${port}`))
