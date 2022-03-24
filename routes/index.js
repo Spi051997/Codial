@@ -5,7 +5,7 @@ const router=express.Router();
 const homecontroller=require('../controles/home_controler');
 // const usercontroller=require('../controles/user_controlller')
 
-console.log("route is ready")
+// console.log("route is ready")
 
 // router for home_contrller
 //1. The below is home controoler router👇👇

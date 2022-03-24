@@ -6,7 +6,7 @@ const contactrouter=express.Router();
 
 const contactcontroller=require('../controles/contact');
 
-console.log("Contact router is ready")
+// console.log("Contact router is ready")
 contactrouter.use('/contact',contactcontroller.contact);
 
 

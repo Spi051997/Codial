@@ -26,4 +26,4 @@ const userSchema=new mongoose.Schema({
 
 const usersccr=mongoose.model('user',userSchema);
 
-module.require=usersccr;
+module.exports=usersccr;

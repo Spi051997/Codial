@@ -7,16 +7,19 @@ const userController=require('../controles/user_controlller');
 // const Signincontroer=require('../controles/user_controlller')
 
 // for User page
-console.log('user router is ready')
+// console.log('user router is ready')
 userrouter.use('/profiles',userController.profile);
 
 //  for user sign in page
-console.log('Sign up is ready');
+// console.log('Sign up is ready');
 userrouter.use('/Signup',userController.Signup);
 
 // for user Sign up  page
-console.log('Sign in  is ready');
+// console.log('Sign in  is ready');
 userrouter.use('/Signin',userController.Signin);
+
+
+userrouter.post('/create',userController.create);
 
 
 
