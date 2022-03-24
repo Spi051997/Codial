@@ -22,3 +22,14 @@ module.exports.Signin=(req,res)=>
         title:"Sign_in"
     })
 }
+
+
+module.exports.create=(req,res)=>
+{
+    // to do later
+}
+
+module.exports.create=(req,res)=>
+{
+
+}
