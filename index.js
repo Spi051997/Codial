@@ -1,6 +1,7 @@
 const express=require('express');
 
 const port=8000;
+const cookieparser=require('cookie-parser');
 
 const app=express();
 
@@ -10,6 +11,11 @@ const db=require('./config/mongoose');
 
 const expresslayouts=require('express-ejs-layouts');
 
+
+// parser 
+app.use(express.urlencoded());
+// use of cookie parser
+app.use(cookieparser());
 // import assets folder using below 👇
 app.use(express.static('./assets'))
 //  use express layouts
