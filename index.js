@@ -5,6 +5,9 @@ const port=8000;
 const app=express();
 
 
+const db=require('./config/mongoose');
+
+
 const expresslayouts=require('express-ejs-layouts');
 
 // import assets folder using below 👇
