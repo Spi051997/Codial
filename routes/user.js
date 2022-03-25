@@ -22,6 +22,9 @@ userrouter.use('/Signin',userController.Signin);
 userrouter.post('/create',userController.create);
 
 
+userrouter.post('/create-sessionC',userController.createsession);
+
+
 
 
 
