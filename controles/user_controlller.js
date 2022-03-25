@@ -2,9 +2,36 @@
 
 module.exports.profile=(req,res)=>
 {
-    return res.render("user",{
-        title:"User"
-    })
+      if(req.cookies.user_id)
+      {
+          User.findById(req.cookies.user_id,(err,user)=>
+          {
+           if(err)
+           {
+               console.log("Error while  showing cookie sessio id");
+               return;
+           } 
+           
+           if(user)
+           {
+               return res.render('user',{
+                   title:"User Profile",
+                   user:user
+               })
+           }
+           else{
+            return res.redirect('/user/Signin')
+           }
+          })
+
+      }
+      else{
+
+        return res.redirect('/user/Signin')
+      }
+    // return res.render("user",{
+    //     title:"User Profile"
+    // })
 }
 
 
@@ -85,7 +112,7 @@ module.exports.createsession=(req,res)=>
             }
 
             res.cookie('user_id',user.id);
-            return res.redirect('/user/profiles');
+            return res.redirect('/user/user-profiles');
 
         }
         else{
