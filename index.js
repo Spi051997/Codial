@@ -16,6 +16,7 @@ const passportlocal=require('./config/passport-local-storage')
 
 
 const expresslayouts=require('express-ejs-layouts');
+const Mongostore=require('connect-mongo');
 
 
 // parser 
@@ -43,11 +44,19 @@ app.use(session({
     name:'codial',
     // to do change the secret before the deployment in production
     secret:'xxxxxxx',
-    saveUninitialized:false,
+    saveUninitialized:true,
     resave:false,
     cookie:{
         maxAge:(1000*60*100)
+    },
+    store: Mongostore.create({
+        mongoUrl: 'mongodb+srv://admin:admin@cluster0.efyft.mongodb.net/Codial?retryWrites=true&w=majority',
+        autoRemove:'disabled'
+    },(err)=>
+    {
+        console.log(err || 'Mongo setup error is up!!')
     }
+    )
 }));
 
 app.use(passport.initialize());
