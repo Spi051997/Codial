@@ -92,6 +92,8 @@ module.exports.create=(req,res)=>
 
 }
 
+// Manula Auth
+
 module.exports.createsession=(req,res)=>
 {
     // find the user
