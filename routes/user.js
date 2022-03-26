@@ -8,11 +8,13 @@ const userController=require('../controles/user_controlller');
 
 const passport=require('passport');
 const usersccr = require('../models/user');
+const { Passport } = require('passport/lib');
 // const Signincontroer=require('../controles/user_controlller')
 
 // for User page
 // console.log('user router is ready')
-userrouter.use('/profiles',userController.profile);
+// below checkauth func is used because it prevents user from diretly looged into profile page
+userrouter.use('/profiles',passport.checkauthentiction,userController.profile);
 
 //  for user sign in page
 // console.log('Sign up is ready');
@@ -26,13 +28,6 @@ userrouter.use('/Signin',userController.Signin);
 userrouter.post('/create',userController.create);
 
 
-// userrouter.post('/create-session',passport.Authenticator(
-
-//     'local',
-//     {
-//         failureRedirect:'/user/Signin'
-//     }
-// ),userController.createsession);
 
 userrouter.post('/create-session',passport.authenticate(
     'local',

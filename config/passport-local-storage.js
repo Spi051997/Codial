@@ -58,7 +58,36 @@ passport.deserializeUser((id,done)=>
         }
         return done(null,user);
     })
-})
+});
+
+// Middle ware function are working
+
+// check if user has authenticted
+passport.checkauthentiction=(req,res,next)=>
+{
+    // if the user is sighned in pass on the request on next funtion (Controller)
+    if(req.isAuthenticated())
+    {
+        return next();
+    }
+
+    // user is not signed in
+
+    return res.redirect('/user/Signin');
+}
+
+// set veiws for aut
+
+passport.setAuthticateduser=(req,res,next)=>
+{
+    if(req.isAuthenticated())
+    {
+        res.locals.user=req.user;
+    }
+
+    next();
+    
+}
 
 
 module.exports=passport;
