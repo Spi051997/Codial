@@ -4,6 +4,10 @@ const userrouter=express.Router();
 
 const userController=require('../controles/user_controlller');
 
+// importing passport
+
+const passport=require('passport');
+const usersccr = require('../models/user');
 // const Signincontroer=require('../controles/user_controlller')
 
 // for User page
@@ -20,6 +24,24 @@ userrouter.use('/Signin',userController.Signin);
 
 
 userrouter.post('/create',userController.create);
+
+
+// userrouter.post('/create-session',passport.Authenticator(
+
+//     'local',
+//     {
+//         failureRedirect:'/user/Signin'
+//     }
+// ),userController.createsession);
+
+userrouter.post('/create-session',passport.authenticate(
+    'local',
+    {
+       failureRedirect:'/user/Signin'
+    },
+
+),userController.createsession);
+
 
 
 
