@@ -2,6 +2,7 @@ const express=require('express');
 
 const port=8000;
 const cookieparser=require('cookie-parser');
+const path=require('path');
 
 const app=express();
 
@@ -17,7 +18,19 @@ const passportlocal=require('./config/passport-local-storage')
 
 const expresslayouts=require('express-ejs-layouts');
 const Mongostore=require('connect-mongo');
+// Adding SASS middle ware
+const sassMiddleware = require('node-sass-middleware');
 
+// using sassmiddleware in app.use
+
+app.use(sassMiddleware({
+
+    src: './assets/scss',
+    dest: './assets/css',
+    debug: true,
+    outputStyle: 'extended',
+    prefix:  '/css'
+}));
 
 // parser 
 app.use(express.urlencoded());

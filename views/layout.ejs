@@ -5,13 +5,21 @@
         <%= title%>
     </title>
     <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/scss/header.scss">
+    <link rel="stylesheet" href="/scss/footer.scss">
+
 </head>
 
 <body>
 
     <%- include('_header'); %>
 
+    <main id="layout-main">
+
         <%- body %>
+    </main>
+
+       
 
             <%- include('_footer'); %>
 
