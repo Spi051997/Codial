@@ -17,6 +17,8 @@ router.use('/user',require('./user'));
 
 router.use('/user',require('./contactroute'));
 
+router.use('/posts',require('./post'))
+
 
 
 module.exports=router;
