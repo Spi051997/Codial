@@ -1,6 +1,8 @@
 const express=require('express');
 
+
 const userrouter=express.Router();
+const Passport=require('passport');
 
 // importing post contorller
 
@@ -8,6 +10,6 @@ const userrouter=express.Router();
 const Postcontroller=require('../controles/post_cotroller')
 
 
-userrouter.use('/create',Postcontroller.create);
+userrouter.use('/create',Passport.checkauthentiction,Postcontroller.create);
 
 module.exports=userrouter;

@@ -20,13 +20,11 @@
      <% for(post of posts){ %>
 
         <li>
-            <%= post.content  %>
+            <%= post.content%>
         </li>
-        <small>
-            <p>Posted By</p>
-            <%= post.user.name%>
-            <%= post.user.email%>
-        </small>
+        <div>
+            <%= post.user%>
+        </div>
 
 
 
