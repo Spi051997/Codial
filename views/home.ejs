@@ -1,15 +1,38 @@
-<h1><%= title%> page is ready</h1>
+<h1>
+    <%= title%> page is ready
+</h1>
 
 
 <section id="feed-post">
     <h4>Post</h4>
     <form action="/posts/create" id="new-post-form" method="POST">
 
-      <textarea name="content"  id="new-post-content" cols="30" rows="10" placeholder="Type here....."></textarea>
-<input type="submit" value="Post">
+        <textarea name="content" id="new-post-content" cols="30" rows="10" placeholder="Type here....."></textarea>
+        <input type="submit" value="Post">
 
 
     </form>
+
+    <div id="div-poslist-container">
+
+    <ul>
+
+     <% for(post of posts){ %>
+
+        <li>
+            <%= post.content  %>
+        </li>
+        <small>
+            <%= post.user%>
+        </small>
+
+
+
+        <% } %>
+
+    </ul>
+
+    </div>
 
 
 </section>
